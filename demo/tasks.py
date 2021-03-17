@@ -29,3 +29,8 @@ def count_prime_numbers_task(cpn_pk: int, limit: int) -> None:
     cpn.counter = counter
     cpn.status = TaskStatus.SUCCESS
     cpn.save()
+
+
+@shared_task()
+def tarea_periodica_task():
+    print("Se ejecuto tarea periodica!")
