@@ -103,9 +103,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "es-CO"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/Bogota"
 
 USE_I18N = True
 
@@ -118,3 +118,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
+
+# Celery config
+
+REDIS_HOST = "redis"
+
+CELERY_BROKER_URL = "redis://%s:6379" % REDIS_HOST
+
+CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+
+CELERY_ACCEPT_CONTENT = ["application/json"]
+
+CELERY_RESULT_SERIALIZER = "json"
+
+CELERY_TASK_SERIALIZER = "json"
+
+CELERY_TIMEZONE = TIME_ZONE

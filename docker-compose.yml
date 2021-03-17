@@ -1,0 +1,13 @@
+version: "3.6"
+
+services:
+  redis:
+    image: redis:4.0-alpine
+  app:
+    image: django-celery-demo
+    ports:
+      - "8888:8000"
+    volumes:
+      - .:/app
+    links:
+      - redis
