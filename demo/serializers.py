@@ -1,3 +1,4 @@
+from django_celery_results.models import TaskResult
 from rest_framework import serializers
 
 from demo.models import CountPrimeNumbers
@@ -28,3 +29,9 @@ class CountPrimeNumbersSerializer(serializers.ModelSerializer):
         obj = super().create(validated_data)
         count_prime_numbers_task.delay(obj.pk, obj.limit)
         return obj
+
+
+class TaskResultSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TaskResult
+        fields = "__all__"

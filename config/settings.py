@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_celery_beat",
+    "django_celery_results",
     "demo",
 ]
 
@@ -145,3 +146,5 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": crontab(minute="*/1"),
     },
 }
+
+CELERY_RESULT_BACKEND = "django-db"
