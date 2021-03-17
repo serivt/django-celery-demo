@@ -1,0 +1,29 @@
+GET http://127.0.0.1:8888/demo/count-prime-numbers/ HTTP/1.1
+content-type: application/json
+
+###
+
+POST http://127.0.0.1:8888/demo/count-prime-numbers/ HTTP/1.1
+content-type: application/json
+
+{
+  "limit": 5000000
+}
+
+###
+
+POST http://127.0.0.1:8888/demo/count-prime-numbers/ HTTP/1.1
+content-type: application/json
+
+{
+  "limit": 500000
+}
+
+###
+
+POST http://127.0.0.1:8888/demo/count-prime-numbers/ HTTP/1.1
+content-type: application/json
+
+{
+  "limit": 0
+}
