@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "django-celery-demo"
+version = "0.1.0"
+description = "Demostracion de Django + Celery"
+authors = ["Sergio Torrado <sergio.itp16@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.8.7"
+Django = "~3.1.5"
+djangorestframework = "^3.12.2"
+ipython = "^7.20.0"
+django-extensions = "^3.1.0"
+celery = "^5.0.5"
+redis = "^3.5.3"
+django-redis = "^4.12.1"
+django-celery-beat = "^2.2.0"
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | migrations
+)/
+'''
+
+[tool.isort]
+multi_line_output = 3
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 88
+skip = "migrations"
+default_section = "THIRDPARTY"
+known_first_party = [
+    "cartera",
+    "config",
+    "documentacion",
+    "instancias",
+    "notificaciones",
+    "permisos",
+    "pqrs",
+    "tickets",
+    "usuarios"
+]
+known_django = "django"
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "DJANGO", "FIRSTPARTY", "LOCALFOLDER"]
+combine_as_imports = true
+include_trailing_comma = true
+
+[tool.pytest.ini_options]
+addopts = "--nomigrations --disable-pytest-warnings --disable-warnings --ds=config.settings_tests"
